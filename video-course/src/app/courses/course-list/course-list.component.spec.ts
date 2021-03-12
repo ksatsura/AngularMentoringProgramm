@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseListComponent } from './course-list.component';
+import { coursesList } from '../mock-data';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -21,5 +22,9 @@ describe('CourseListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have a courses list as mock data', () => {
+    expect(component.courses).toEqual(coursesList);
   });
 });

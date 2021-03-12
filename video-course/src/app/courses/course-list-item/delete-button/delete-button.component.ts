@@ -17,5 +17,4 @@ export class DeleteButtonComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

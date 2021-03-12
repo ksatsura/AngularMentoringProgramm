@@ -17,9 +17,29 @@ describe('LogoffComponent', () => {
     fixture = TestBed.createComponent(LogoffComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    spyOn(console, 'log');
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should invoke onLogoffClick method at click on Logoff link', () => {
+    spyOn(component, 'onLogoffClick');
+
+    const event = new Event('click');
+    let link = fixture.debugElement.nativeElement.querySelector('a');
+    link.dispatchEvent(event);
+
+    fixture.detectChanges();
+
+    expect(component.onLogoffClick).toHaveBeenCalled();
+  });
+
+  it('should insert in console "Logoff was clicked" when onLogoffClick method was called', () => {
+    component.onLogoffClick();
+
+    expect(console.log).toHaveBeenCalledWith('Logoff was clicked');
   });
 });

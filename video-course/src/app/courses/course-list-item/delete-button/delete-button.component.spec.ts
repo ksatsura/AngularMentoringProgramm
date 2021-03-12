@@ -22,4 +22,16 @@ describe('DeleteButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should invoke onClick method at click on Delete button', () => {
+    spyOn(component, 'deleteItemById');
+
+    const event = new Event('click');
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+    button.dispatchEvent(event);
+
+    fixture.detectChanges();
+
+    expect(component.deleteItemById).toHaveBeenCalled();
+  });
 });

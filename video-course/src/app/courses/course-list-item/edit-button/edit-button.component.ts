@@ -17,5 +17,4 @@ export class EditButtonComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

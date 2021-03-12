@@ -12,4 +12,7 @@ export class LogoffComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogoffClick() {
+    console.log('Logoff was clicked');
+  }
 }

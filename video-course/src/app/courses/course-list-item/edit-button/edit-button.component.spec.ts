@@ -22,4 +22,17 @@ describe('EditButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
+  it('should invoke onClick method at click on Edit button', () => {
+    spyOn(component, 'editItemById');
+
+    const event = new Event('click');
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+    button.dispatchEvent(event);
+
+    fixture.detectChanges();
+
+    expect(component.editItemById).toHaveBeenCalled();
+  });
 });

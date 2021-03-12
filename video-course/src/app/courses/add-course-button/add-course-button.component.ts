@@ -12,4 +12,7 @@ export class AddCourseButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClick() {
+    console.log('Add course button was clicked');
+  }
 }

@@ -12,4 +12,8 @@ export class LogoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogoClick() {
+    console.log('Logo was clicked');
+  }
+
 }

@@ -1,3 +1,4 @@
-<ul class="list-group">
+<ul class="list-group" *ngIf="courses.length; else elseBlock">
   <vc-course-list-item *ngFor="let course of courses" [courseItem]="course"></vc-course-list-item>
 </ul>
+<ng-template #elseBlock><p class='text-center'>No data. Feel free to add new course.</p></ng-template>

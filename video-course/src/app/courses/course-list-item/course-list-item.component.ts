@@ -8,6 +8,7 @@ import { Course } from '../../models/course-model';
 })
 export class CourseListItemComponent implements OnInit {
   @Input() courseItem: Course;
+  date: string;
 
   constructor() {
   }

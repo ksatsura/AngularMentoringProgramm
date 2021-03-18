@@ -1,8 +1,12 @@
-<li class="alert alert-primary" role="alert">
+<li class="alert alert-primary" role="alert" vcCourseHighlightBinding [date]="courseItem.creationDate"
+[ngClass]="{'bg-info': courseItem.topRated}">
   <div class="d-flex justify-content-between mb-3">
-    <span>{{courseItem.title}}</span>
     <div>
-      <vc-duration [duration]="courseItem.duration"></vc-duration>
+      <span class="mr-3">{{courseItem.title | uppercase}}</span>
+      <vc-course-star *ngIf="courseItem.topRated"></vc-course-star>
+    </div>
+    <div>
+      <vc-duration [courseDuration]="courseItem.duration"></vc-duration>
       <vc-creation-date [date]="courseItem.creationDate"></vc-creation-date>
     </div>
   </div>

@@ -22,7 +22,8 @@ describe('CourseListItemComponent', () => {
       title: 'Course 1 title',
       description: 'Corse 1 description',
       creationDate: '09-03-2021',
-      duration: 60 
+      duration: 60,
+      topRated: true,
     };
 
     spyOn(console, 'log');

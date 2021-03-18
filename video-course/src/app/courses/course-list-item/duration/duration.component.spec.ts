@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DurationComponent } from './duration.component';
+import { DurationPipe } from '../../../pipes/duration.pipe';
 
 describe('DurationComponent', () => {
   let component: DurationComponent;
@@ -8,7 +9,7 @@ describe('DurationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DurationComponent ]
+      declarations: [ DurationComponent, DurationPipe ]
     })
     .compileComponents();
   });
@@ -16,6 +17,7 @@ describe('DurationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DurationComponent);
     component = fixture.componentInstance;
+    component.courseDuration = 80;
     fixture.detectChanges();
   });
 

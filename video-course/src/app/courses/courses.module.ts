@@ -10,6 +10,11 @@ import { DurationComponent } from './course-list-item/duration/duration.componen
 import { CreationDateComponent } from './course-list-item/creation-date/creation-date.component';
 import { EditButtonComponent } from './course-list-item/edit-button/edit-button.component';
 import { DeleteButtonComponent } from './course-list-item/delete-button/delete-button.component';
+import { CourseHighlightBindingDirective } from '../directives/course-highlight-binding.directive';
+import { CourseStarComponent } from './course-list-item/course-star/course-star.component';
+import { OrderByPipe } from '../pipes/order-by.pipe';
+import { DurationPipe } from '../pipes/duration.pipe';
+import { DatePipe } from '../pipes/date.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { DeleteButtonComponent } from './course-list-item/delete-button/delete-b
     DurationComponent,
     CreationDateComponent,
     EditButtonComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+    CourseHighlightBindingDirective,
+    CourseStarComponent,
+    OrderByPipe,
+    DurationPipe,
+    DatePipe,
   ],
   imports: [
     CommonModule,

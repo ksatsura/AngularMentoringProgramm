@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./duration.component.css']
 })
 export class DurationComponent implements OnInit {
-  @Input() duration;
+  @Input() courseDuration;
 
   constructor() { }
 

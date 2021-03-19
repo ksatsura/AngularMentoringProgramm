@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../../authentication.service';
 
 @Component({
   selector: 'vc-logoff',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoffComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   onLogoffClick() {
-    console.log('Logoff was clicked');
+    this.authService.logOff();
   }
 }

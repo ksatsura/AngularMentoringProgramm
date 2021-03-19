@@ -1,14 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
+import { AuthenticationService } from '../../../authentication.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let authServiceStub: AuthenticationService;
+
+  authServiceStub = {
+    logIn: () => {},
+    logOff: () => {},
+    isAuthenticated: () => {},
+    getUserInfo: () => {},
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [ LoginComponent ],
+      providers:  [ { provide: AuthenticationService, useValue: authServiceStub } ]
     })
     .compileComponents();
   });
@@ -16,9 +26,8 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
 
-    spyOn(console, 'log');
+    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -37,9 +46,11 @@ describe('LoginComponent', () => {
     expect(component.onLoginClick).toHaveBeenCalled();
   });
 
-  it('should insert in console "Login was clicked" when onLoginClick method was called', () => {
+  it('should insert in console "Login was successful" when onLoginClick method was called', () => {
+    spyOn(authServiceStub, 'logIn');
+
     component.onLoginClick();
 
-    expect(console.log).toHaveBeenCalledWith('Login was clicked');
+    expect(authServiceStub.logIn).toHaveBeenCalled();
   });
 });

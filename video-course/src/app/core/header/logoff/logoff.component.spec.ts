@@ -1,14 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AuthenticationService } from '../../../authentication.service';
 
 import { LogoffComponent } from './logoff.component';
 
 describe('LogoffComponent', () => {
   let component: LogoffComponent;
   let fixture: ComponentFixture<LogoffComponent>;
+  let authServiceStub: AuthenticationService;
+
+  authServiceStub = {
+    logIn: () => {},
+    logOff: () => {},
+    isAuthenticated: () => {},
+    getUserInfo: () => {},
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LogoffComponent ]
+      declarations: [ LogoffComponent ],
+      providers:  [ { provide: AuthenticationService, useValue: authServiceStub } ]
     })
     .compileComponents();
   });
@@ -17,8 +27,6 @@ describe('LogoffComponent', () => {
     fixture = TestBed.createComponent(LogoffComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    spyOn(console, 'log');
   });
 
   it('should create', () => {
@@ -38,8 +46,10 @@ describe('LogoffComponent', () => {
   });
 
   it('should insert in console "Logoff was clicked" when onLogoffClick method was called', () => {
+    spyOn(authServiceStub, 'logOff');
+
     component.onLogoffClick();
 
-    expect(console.log).toHaveBeenCalledWith('Logoff was clicked');
+    expect(authServiceStub.logOff).toHaveBeenCalled();
   });
 });

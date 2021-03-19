@@ -1,3 +1,11 @@
-<vc-header></vc-header>
-<vc-courses></vc-courses>
-<vc-footer></vc-footer>
+<div *ngIf='true' class='home-page'>
+  <vc-header isDisplayLogin='true'></vc-header>
+  <vc-courses></vc-courses>
+  <vc-footer></vc-footer>
+</div>
+<div *ngIf='false' class='login-page'>
+  <vc-header isDisplayLogin='false' ></vc-header>
+  <vc-login-page></vc-login-page>
+  <vc-footer></vc-footer>
+</div>
+

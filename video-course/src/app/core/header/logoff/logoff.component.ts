@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../authentication.service';
+import { AuthenticationService } from '../../../login-modal/authentication.service';
 
 @Component({
   selector: 'vc-logoff',

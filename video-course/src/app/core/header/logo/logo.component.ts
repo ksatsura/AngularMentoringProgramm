@@ -15,5 +15,4 @@ export class LogoComponent implements OnInit {
   onLogoClick() {
     console.log('Logo was clicked');
   }
-
 }

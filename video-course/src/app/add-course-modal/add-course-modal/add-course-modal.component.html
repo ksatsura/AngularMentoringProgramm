@@ -1,0 +1,30 @@
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+
+  <form class="modal-content animate" action="/action_page.php">
+    <p class="ml-3 title h3">Add Course</p>
+
+    <div class="container-form">
+      <label for="title" class="label-left"><b>Title:</b></label>
+      <input type="text" placeholder="Enter Course Title" name="title" required>
+
+      <label for="desc" class="label-left"><b>Description:</b></label>
+      <input type="text" placeholder="Enter Course Description" name="desc" required>
+
+      <label for="date" class="label-left"><b>Date:</b></label>
+      <input class="datepicker" data-date-format="mm/dd/yyyy" type="date" placeholder="Enter Course Start Date" name="date" required>
+
+      <label for="duration" class="label-left"><b>Duration:</b></label>
+      <input type="number" placeholder="Enter Course Duration in minutes" name="duration" required>
+
+      <label for="authors" class="label-left"><b>Authors:</b></label>
+      <input type="text" name="authors" class="form-control" placeholder='example Author 1, Author 2'>
+        
+      <div class="button-container">
+        <button type="submit" class="rounded btn-success">Save</button>
+        <button type="button" class="rounded cancelbtn btn-success" onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

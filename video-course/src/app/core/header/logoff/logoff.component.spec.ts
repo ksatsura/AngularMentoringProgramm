@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AuthenticationService } from '../../../authentication.service';
+import { AuthenticationService } from '../../../login-modal/authentication.service';
 
 import { LogoffComponent } from './logoff.component';
 

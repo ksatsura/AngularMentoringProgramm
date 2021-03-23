@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 
 import { OrderByPipe } from '../../pipes/order-by.pipe';
 import { FilterPipe } from '../../pipes/filter.pipe';
@@ -9,7 +9,8 @@ import { CoursesService } from '../../courses.service';
   selector: 'vc-course-list',
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.css'],
-  providers: [ OrderByPipe, FilterPipe ]
+  providers: [ OrderByPipe, FilterPipe ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseListComponent implements OnInit {
   public courses;
@@ -26,7 +27,6 @@ export class CourseListComponent implements OnInit {
   }
   
   setNewCoursesList(searchParam) {
-    console.log('inside set new courses list', searchParam);
     this.courses = this.filterPipe.transform(searchParam, this.coursesService.getList());
   }
 }

@@ -14,15 +14,15 @@
   padding-top: 60px;
 }
 
-.container {
+.form-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px;
+  align-items: center;
 }
 
 .modal-content {
   background-color: #fefefe;
-  height: 50%;
+  height: 70%;
   border: 1px solid #888;
   width: 55%;
 }
@@ -34,6 +34,30 @@
   color: #000;
   font-size: 35px;
   font-weight: bold;
+}
+
+.label-left {
+  margin-left: 15px;
+  align-self: flex-start;
+}
+
+input {
+  width: 95%;
+}
+
+button {
+  margin-top: 6px;
+  width: 300px;
+}
+
+button:hover {
+  background-color: green;
+}
+
+.cancelbtn,
+.psw-forgot
+ {
+  align-self: center;
 }
 
 .close:hover,

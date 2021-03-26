@@ -1,8 +1,5 @@
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
-
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate">
     <p class="ml-3 title h3">Login</p>
 
     <div class="form-container">
@@ -12,13 +9,13 @@ class="close" title="Close Modal">&times;</span>
       <label for="psw" class="label-left"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit" class="rounded">Login</button>
+      <button type="submit" class="rounded btn-success" (click)="$event.preventDefault(); onLoginButtonClick()">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
     </div>
 
-    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn rounded">Cancel</button>
+    <button type="button" (click)="$event.preventDefault(); onCancelButtonClick()" class="cancelbtn rounded btn-success">Cancel</button>
     <span class="psw-forgot">Forgot <a href="#">password?</a></span>
   </form>
 </div>

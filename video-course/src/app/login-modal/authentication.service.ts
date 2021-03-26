@@ -15,8 +15,8 @@ export class AuthenticationService {
     console.log('Logoff was clicked');
   }
 
-  isAuthenticated() {
-
+  isAuthenticated(): boolean {
+    return true;
   }
 
   getUserInfo() {

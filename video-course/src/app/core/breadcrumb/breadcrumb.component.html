@@ -1,4 +1,10 @@
-<ul class="list-unstyled">
+<!-- <ul class="list-unstyled">
   <li class="my-3 mx-1">Courses</li>
-</ul>
-
+</ul> -->
+<ol class="breadcrumb">
+  <li *ngFor="let breadcrumb of breadcrumbs">
+    <span [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
+      {{ breadcrumb.label }}
+    </span>
+  </li>
+</ol>

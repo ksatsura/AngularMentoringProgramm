@@ -3,8 +3,7 @@ import { Component, Input, OnInit, SimpleChanges, ChangeDetectionStrategy } from
 import { OrderByPipe } from '../../pipes/order-by.pipe';
 import { FilterPipe } from '../../pipes/filter.pipe';
 
-import { CoursesService } from '../../courses.service';
-
+import { CoursesService } from '../../services/courses.service';
 @Component({
   selector: 'vc-course-list',
   templateUrl: './course-list.component.html',
@@ -20,6 +19,9 @@ export class CourseListComponent implements OnInit {
 
   ngOnInit(): void {
     this.courses = this.orderByPipe.transform(this.coursesService.getList()) || [];
+    // Subscribe to the changes in a course list from course service
+    this.coursesService.courseListUpdated.subscribe(courseList => this.courses = this.orderByPipe.transform(courseList));
+    console.log('init course list');
   }
 
   ngOnChanges(changes: SimpleChanges) {

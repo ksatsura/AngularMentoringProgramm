@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'vc-add-course-button',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCourseButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onClick() {
     console.log('Add course button was clicked');
+    this.router.navigate(['courses/new']);
   }
 }

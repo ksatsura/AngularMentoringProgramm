@@ -10,7 +10,6 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('isDisplayingLogin', this.isDisplayLogin);
   }
 
   onLogoutClick() {

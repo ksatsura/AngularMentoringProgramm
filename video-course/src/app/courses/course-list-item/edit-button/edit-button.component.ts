@@ -9,11 +9,11 @@ export class EditButtonComponent implements OnInit {
   @Input() itemId;
   @Output() editItemByIdEvent = new EventEmitter<number>();
 
+  constructor() { }
+
   editItemById() {
     this.editItemByIdEvent.emit(this.itemId);
   }
-
-  constructor() { }
 
   ngOnInit(): void {
   }

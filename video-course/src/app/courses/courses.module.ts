@@ -15,6 +15,7 @@ import { CourseStarComponent } from './course-list-item/course-star/course-star.
 import { OrderByPipe } from '../pipes/order-by.pipe';
 import { DurationPipe } from '../pipes/duration.pipe';
 import { DatePipe } from '../pipes/date.pipe';
+import { CoursesComponentRoutingModule } from './courses-routing.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { DatePipe } from '../pipes/date.pipe';
   imports: [
     CommonModule,
     CoreModule,
+    CoursesComponentRoutingModule,
   ],
   exports: [
     CourseListComponent,

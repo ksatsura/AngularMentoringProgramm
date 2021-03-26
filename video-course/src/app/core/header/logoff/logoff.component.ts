@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../login-modal/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'vc-logoff',
@@ -8,12 +9,13 @@ import { AuthenticationService } from '../../../login-modal/authentication.servi
 })
 export class LogoffComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onLogoffClick() {
     this.authService.logOff();
+    this.router.navigate(['login']);
   }
 }

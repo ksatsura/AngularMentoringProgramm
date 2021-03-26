@@ -7,6 +7,7 @@ import { LogoComponent } from './header/logo/logo.component';
 import { LoginComponent } from './header/login/login.component';
 import { LogoffComponent } from './header/logoff/logoff.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+// import { VcRoutingModule } from '../vc-routing.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     LogoffComponent, BreadcrumbComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    // VcRoutingModule
   ],
   exports: [
     HeaderComponent,

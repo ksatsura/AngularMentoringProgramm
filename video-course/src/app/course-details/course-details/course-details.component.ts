@@ -20,10 +20,10 @@ export class CourseDetailsComponent implements OnInit {
     this.course = this.coursesService.getItemById(Number(itemId));
 
     this.form = this.formBuilder.group({ 
-      title: this.course.title,
+      name: this.course.name,
       description: this.course.description,
-      creationDate: this.course.creationDate,
-      duration: this.course.duration
+      date: this.course.date,
+      duration: this.course.length
     });
   }
 

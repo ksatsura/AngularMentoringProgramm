@@ -6,9 +6,9 @@ import { CourseHighlightBindingDirective } from './course-highlight-binding.dire
 
 
 @Component({
-  template: `<div [date]="'03-15-2021'" vcCourseHighlightBinding>Test highlight</div>
-            <div [date]="'04-15-2021'" vcCourseHighlightBinding>Test highlight</div>
-            <div [date]="'02-15-2021'" vcCourseHighlightBinding>Test highlight</div>
+  template: `<div [date]="'03/15/2021'" vcCourseHighlightBinding>Test highlight</div>
+            <div [date]="'04/15/2021'" vcCourseHighlightBinding>Test highlight</div>
+            <div [date]="'02/15/2021'" vcCourseHighlightBinding>Test highlight</div>
   `,
 })
 export class TestHightlightComponent {

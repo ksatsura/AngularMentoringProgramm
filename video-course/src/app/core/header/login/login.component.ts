@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../login-modal/authentication.service';
 
 @Component({
   selector: 'vc-login',
@@ -8,12 +7,12 @@ import { AuthenticationService } from '../../../login-modal/authentication.servi
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   onLoginClick() {
-    this.authService.logIn();
+    console.log('Login was clicked');
   }
 }

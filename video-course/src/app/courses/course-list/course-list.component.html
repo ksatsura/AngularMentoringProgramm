@@ -1,4 +1,12 @@
-<ul class="list-group" *ngIf="courses.length; else elseBlock">
-  <vc-course-list-item *ngFor="let course of courses" [courseItem]="course"></vc-course-list-item>
-</ul>
-<ng-template #elseBlock><p class='text-center'>No data. Feel free to add new course.</p></ng-template>
+
+<div *ngIf="!courses; else listBlock" class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<ng-template #listBlock>
+  <ul class="list-group" *ngIf="courses.length; else noDataBlock">
+    <vc-course-list-item *ngFor="let course of courses" [courseItem]="course"></vc-course-list-item>
+  </ul>
+</ng-template>
+<ng-template #noDataBlock>
+  <p class='text-center'>No data. Feel free to add new course.</p>
+</ng-template>

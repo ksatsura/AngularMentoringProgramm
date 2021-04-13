@@ -1,13 +1,14 @@
 <div id="id01" class="modal">
-  <form class="modal-content animate">
+  <form class="modal-content animate" [formGroup]="loginForm">
     <p class="ml-3 title h3">Login</p>
+    <p *ngIf="error.message" class="error-message">{{error.message}}</p>
 
     <div class="form-container">
       <label for="uname" class="label-left"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" name="uname" required formControlName="login">
 
       <label for="psw" class="label-left"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="psw" required formControlName="password">
 
       <button type="submit" class="rounded btn-success" (click)="$event.preventDefault(); onLoginButtonClick()">Login</button>
       <label>

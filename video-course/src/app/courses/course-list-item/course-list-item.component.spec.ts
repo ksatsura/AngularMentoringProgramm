@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseListItemComponent } from './course-list-item.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CoursesService } from '../../services/courses.service';
+import { MockCourseService } from '../../courses/mock-data/mock-course-service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CourseListItemComponent', () => {
   let component: CourseListItemComponent;
@@ -8,7 +12,12 @@ describe('CourseListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CourseListItemComponent ]
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [ CourseListItemComponent ],
+      providers: [{
+        provide: CoursesService,
+        useClass: MockCourseService
+      }]
     })
     .compileComponents();
   });
@@ -19,11 +28,11 @@ describe('CourseListItemComponent', () => {
     component = fixture.componentInstance;
     component.courseItem = { 
       id: 1,
-      title: 'Course 1 title',
+      name: 'Course 1 title',
       description: 'Corse 1 description',
-      creationDate: '09-03-2021',
-      duration: 60,
-      topRated: true,
+      date: '09-03-2021',
+      length: '60',
+      isTopRated: 'true',
     };
 
     spyOn(console, 'log');

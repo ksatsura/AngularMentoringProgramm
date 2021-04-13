@@ -7,11 +7,13 @@ const MIN_IN_HOUR = 60;
 })
 export class DurationPipe implements PipeTransform {
 
-  transform(duration: number): string {
-    if (duration > MIN_IN_HOUR) {
-      const hours = Math.floor(duration / MIN_IN_HOUR);
+  transform(duration: string): string {
+    const durationToNumber = Number(duration);
 
-      return `${hours} h ${duration - hours * MIN_IN_HOUR} min`;
+    if (durationToNumber > MIN_IN_HOUR) {
+      const hours = Math.floor(durationToNumber / MIN_IN_HOUR);
+
+      return `${hours} h ${durationToNumber- hours * MIN_IN_HOUR} min`;
     } else {
       return `${duration} min`
     }

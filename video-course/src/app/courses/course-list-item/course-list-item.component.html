@@ -1,17 +1,17 @@
-<li class="alert alert-primary" role="alert" vcCourseHighlightBinding [date]="courseItem.creationDate"
-[ngClass]="{'bg-info': courseItem.topRated}">
+<li class="alert alert-primary" role="alert" vcCourseHighlightBinding [date]="courseItem.date"
+[ngClass]="{'bg-info': courseItem.isTopRated}">
   <div class="d-flex justify-content-between mb-3">
     <div>
-      <span class="mr-3">{{courseItem.title | uppercase}}</span>
-      <vc-course-star *ngIf="courseItem.topRated"></vc-course-star>
+      <span class="mr-3">{{courseItem.name | uppercase}}</span>
+      <vc-course-star *ngIf="courseItem.isTopRated"></vc-course-star>
     </div>
     <div>
-      <vc-duration [courseDuration]="courseItem.duration"></vc-duration>
-      <vc-creation-date [date]="courseItem.creationDate"></vc-creation-date>
+      <vc-duration [courseDuration]="courseItem.length"></vc-duration>
+      <vc-creation-date [date]="courseItem.date"></vc-creation-date>
     </div>
   </div>
   <div class="d-flex justify-content-between">
-    <span>{{courseItem.description}}</span>
+    <p class="w-50">{{courseItem.description}}</p>
     <div>
       <vc-edit-button [itemId]="courseItem.id" (editItemByIdEvent)="editItem($event)"></vc-edit-button>
       <vc-delete-button [itemId]="courseItem.id" (deleteItemByIdEvent)="deleteItem($event)"></vc-delete-button>

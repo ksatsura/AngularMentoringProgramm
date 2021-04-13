@@ -71,6 +71,11 @@ button:hover {
   animation: animatezoom 0.6s
 }
 
+.error-message {
+  margin-left: 15px;
+  color: red;
+}
+
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)}
   to {-webkit-transform: scale(1)}

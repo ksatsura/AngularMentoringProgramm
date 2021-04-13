@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../../services/courses.service';
 
 @Component({
   selector: 'vc-load-more-button',

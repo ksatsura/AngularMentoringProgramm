@@ -1,7 +1,7 @@
 <div class='mb-5'>
   <vc-breadcrumb></vc-breadcrumb>
-  <vc-search (searchEvent)="setSearchParam($event)"></vc-search>
+  <vc-search (searchEvent)="getSearchResults($event)"></vc-search>
   <vc-add-course-button></vc-add-course-button>
-  <vc-course-list [search]="searchParam"></vc-course-list>
-  <vc-load-more-button></vc-load-more-button>
+  <vc-course-list [courses]="courses"></vc-course-list>
+  <vc-load-more-button (click)="$event.preventDefault(); loadMoreCourses()"></vc-load-more-button>
 </div>

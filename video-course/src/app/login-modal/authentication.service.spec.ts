@@ -1,28 +1,51 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, getTestBed } from '@angular/core/testing';
 
 import { AuthenticationService } from './authentication.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { environment } from '../../environments/environment';
 
 describe('AuthenticationService', () => {
   let service: AuthenticationService;
+  let injector: TestBed;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthenticationService);
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
+      providers: [ AuthenticationService ]
+    });
+    injector = getTestBed();
+    service = injector.get(AuthenticationService);
+    httpMock = injector.get(HttpTestingController);
 
     spyOn(console, 'log');
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  afterEach(() => {
+    httpMock.verify();
   });
 
-  it('should return "Login was successful" when method logIn was called', () => {
-    service.logIn();
-    expect(console.log).toHaveBeenCalledWith('Login was successful');
-  })
+  describe('logIn()', () => {
+    it('should return token if login and password correct', () => {
+      const dummyUsers = [
+        { login: 'John' },
+        { login: 'Doe' }
+      ];
+  
+      service.logIn({ login: 'login', password: 'password'}).then(() => {
+        expect(localStorage.getItem('token')).toEqual('12345');
+      });
+  
+      const req = httpMock.expectOne(`${environment.apiUrl}/auth/login`);
+      expect(req.request.method).toBe("POST");
+      req.flush({ name: 'user', token: '12345'});
+    });
+  });
 
-  it('should return "Logoff was clicked" when method logOff was called', () => {
-    service.logOff();
-    expect(console.log).toHaveBeenCalledWith('Logoff was clicked');
-  })
+  describe('logOff()', () => {
+    it('should return "Logoff was clicked" when method logOff was called', () => {
+      service.logOff();
+      expect(console.log).toHaveBeenCalledWith('Logoff was clicked');
+    })
+  });
 });

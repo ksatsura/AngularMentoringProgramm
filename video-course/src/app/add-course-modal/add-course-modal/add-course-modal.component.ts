@@ -18,7 +18,7 @@ export class AddCourseModalComponent implements OnInit {
       title: '',
       description: '',
       creationDate: '',
-      duration: '',
+      length: '',
     });
   }
 
@@ -29,6 +29,7 @@ export class AddCourseModalComponent implements OnInit {
   onSaveClick() {
     // TOGO:  API call
     const newCourseData = this.addForm.value;
+
     this.router.navigate(['']);
     this.courseService.createCourse(newCourseData);
   }

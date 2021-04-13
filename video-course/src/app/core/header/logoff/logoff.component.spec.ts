@@ -1,24 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthenticationService } from '../../../login-modal/authentication.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LogoffComponent } from './logoff.component';
 
 describe('LogoffComponent', () => {
   let component: LogoffComponent;
   let fixture: ComponentFixture<LogoffComponent>;
-  let authServiceStub: AuthenticationService;
+  let authServiceStub;
 
   authServiceStub = {
-    logIn: () => {},
+    logIn: ({ login = 'login', password = 'password' }) => Promise.resolve({ login, password }),
     logOff: () => {},
-    isAuthenticated: () => {},
-    getUserInfo: () => {},
+    isAuthenticated: () => true,
+    getUserInfo: () => Promise.resolve({}),
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LogoffComponent ],
-      providers:  [ { provide: AuthenticationService, useValue: authServiceStub } ]
+      providers:  [ { provide: AuthenticationService, useValue: authServiceStub } ],
+      imports: [RouterTestingModule],
     })
     .compileComponents();
   });

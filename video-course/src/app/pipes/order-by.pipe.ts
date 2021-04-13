@@ -7,6 +7,6 @@ import { Course } from '../models/course-model';
 export class OrderByPipe implements PipeTransform {
 
   transform(list: Course[]): Course[] {
-    return list.sort((a, b) => Date.parse(a.creationDate) - Date.parse(b.creationDate));
+    return list.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
   }
 }

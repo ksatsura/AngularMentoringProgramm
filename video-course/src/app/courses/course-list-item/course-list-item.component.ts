@@ -15,6 +15,9 @@ export class CourseListItemComponent implements OnInit {
   constructor(private router: Router, private coursesService: CoursesService) {
   }
 
+  ngOnInit(): void {
+  }
+
   deleteItem(itemId: Number) {
     console.log(`The item with id ${itemId} is deleted`);
     this.coursesService.removeItem(itemId);
@@ -23,8 +26,5 @@ export class CourseListItemComponent implements OnInit {
   editItem(itemId: Number) {
     console.log(`The item with id ${itemId} is edited`);
     this.router.navigate([`courses/${itemId}`])
-  }
-
-  ngOnInit(): void {
   }
 }

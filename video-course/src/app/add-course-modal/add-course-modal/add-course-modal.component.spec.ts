@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddCourseModalComponent } from './add-course-modal.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CoursesService } from '../../services/courses.service';
+import { MockCourseService } from '../../courses/mock-data/mock-course-service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormBuilder } from '@angular/forms';
 
 describe('AddCourseModalComponent', () => {
   let component: AddCourseModalComponent;
@@ -8,6 +13,14 @@ describe('AddCourseModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ RouterTestingModule, HttpClientTestingModule],
+      providers: [
+        {
+        provide: CoursesService,
+        useClass: MockCourseService
+        },
+        FormBuilder,
+    ],
       declarations: [ AddCourseModalComponent ]
     })
     .compileComponents();
